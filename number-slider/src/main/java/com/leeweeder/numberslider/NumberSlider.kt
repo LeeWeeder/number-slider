@@ -170,10 +170,9 @@ fun NumberSlider(
         }
     }
 
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = modifier) {
         Box(contentAlignment = Alignment.TopCenter) {
             LazyRow(
-                modifier = modifier,
                 state = listState,
                 verticalAlignment = Alignment.CenterVertically,
                 contentPadding = PaddingValues(horizontal = screenWidth / 2 - (wholeNumberItemWidth / 2)),

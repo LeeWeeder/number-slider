@@ -246,7 +246,8 @@ fun NumberSlider(
                 }
             }) {
             scope.launch {
-                val itemIndex = numbers.indexOf(textFieldValue.value.text.toFloat())
+                val floatValue = textFieldValue.value.text.toFloatOrNull() ?: return@launch
+                val itemIndex = numbers.indexOf(floatValue)
                 if (itemIndex >= 0) {
                     listState.scrollToItem(index = itemIndex)
 

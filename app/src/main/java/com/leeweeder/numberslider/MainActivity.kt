@@ -1,6 +1,7 @@
 package com.leeweeder.numberslider
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -24,6 +25,8 @@ class MainActivity : ComponentActivity() {
                     }
                     NumberSlider(value = weight.floatValue, onValueChange = {
                         weight.floatValue = it
+                    }, onTextFieldValueChange = {
+                        Log.d("TextFieldValue", it)
                     })
                 }
             }

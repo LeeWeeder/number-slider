@@ -86,6 +86,7 @@ fun NumberSlider(
                 .background(color = MaterialTheme.colorScheme.outline)
         )
     },
+    onTextFieldValueChange: ((String) -> Unit)? = null,
     onValueChange: (Float) -> Unit
 ) {
     require(value in minValue.toFloat()..maxValue.toFloat()) {
@@ -235,6 +236,9 @@ fun NumberSlider(
                         newValue.copy(selection = TextRange(0, newValue.text.length))
                 } else {
                     textFieldValue.value = newValue
+                }
+                onTextFieldValueChange?.let {
+                    it(textFieldValue.value.text)
                 }
             },
             modifier = Modifier.onFocusChanged { focusState ->

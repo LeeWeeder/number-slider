@@ -134,7 +134,12 @@ fun NumberSlider(
         initialFirstVisibleItemScrollOffset = getOffset(initialItemWidth)
     )
 
+    val textFieldValue = remember {
+        mutableStateOf(TextFieldValue(text = value.toString()))
+    }
+
     LaunchedEffect(value) {
+        textFieldValue.value = TextFieldValue(text = value.toString())
         val itemWidth = getItemWidth(value)
         val offset = getOffset(itemWidth)
         listState.scrollToItem(numbers.indexOf(value), offset)
@@ -212,9 +217,6 @@ fun NumberSlider(
                 }
             }
             centerMarker()
-        }
-        val textFieldValue = remember(value) {
-            mutableStateOf(TextFieldValue(text = value.toString()))
         }
 
         val keepWholeSelection = remember {

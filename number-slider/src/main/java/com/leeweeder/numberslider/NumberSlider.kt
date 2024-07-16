@@ -119,16 +119,26 @@ fun NumberSlider(
         }
     }
 
-    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
-    val initialItemWidth = if (value % 1 == 0f) {
-        wholeNumberItemWidth
-    } else {
-        POINTS_ITEM_WIDTH.dp
+    fun getItemWidth(value: Float): Dp {
+        return if (value % 1 == 0f) {
+            wholeNumberItemWidth
+        } else {
+            POINTS_ITEM_WIDTH.dp
+        }
     }
+
+    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
+    val initialItemWidth = getItemWidth(value)
     val listState = rememberLazyListState(
         initialFirstVisibleItemIndex = numbers.indexOf(value),
         initialFirstVisibleItemScrollOffset = getOffset(initialItemWidth)
     )
+
+    LaunchedEffect(value) {
+        val itemWidth = getItemWidth(value)
+        val offset = getOffset(itemWidth)
+        listState.scrollToItem(numbers.indexOf(value), offset)
+    }
 
     // Calculate the index of the item closest to the center
     val centerIndex = remember {

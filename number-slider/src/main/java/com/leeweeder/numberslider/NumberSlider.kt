@@ -142,7 +142,9 @@ fun NumberSlider(
         textFieldValue.value = TextFieldValue(text = value.toString())
         val itemWidth = getItemWidth(value)
         val offset = getOffset(itemWidth)
-        listState.scrollToItem(numbers.indexOf(value), offset)
+        if (!listState.isScrollInProgress) {
+            listState.scrollToItem(numbers.indexOf(value), offset)
+        }
     }
 
     // Calculate the index of the item closest to the center

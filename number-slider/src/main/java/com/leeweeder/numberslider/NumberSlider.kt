@@ -58,6 +58,23 @@ import kotlin.math.round
 
 private const val POINTS_ITEM_WIDTH = 3
 
+/**
+ * A number slider that allows users to select a numeric value within the given [minValue] - [maxValue] inclusive .
+ *
+ * @sample com.leeweeder.numberslider.sample.NumberSliderSample
+ *
+ * @param modifier the [Modifier] to be applied to [NumberSlider].
+ * @param minValue the minimum selectable value.
+ * @param maxValue the maximum selectable value.
+ * @param step the increment between selectable values.
+ * @param value the value of this [NumberSlider].
+ * @param indicatorProperties [IndicatorProperties] for customizing the appearance of value indicators.
+ * @param rulerMarker [Composable] for customizing markers for non-whole number values.
+ * @param valueTextFieldStyle [TextStyle] for the text field displaying the selected value.
+ * @param centerMarker [Composable] for customizing center marker of the slider.
+ * @param onTextFieldValueChange callback invoked when the text field value changes.
+ * @param onValueChange callback invoked when the selected value (of the slider itself) changes.
+ * */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NumberSlider(

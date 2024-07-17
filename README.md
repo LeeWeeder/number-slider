@@ -99,3 +99,5 @@ NumberSlider(
 For detailed API documentation, refer to the KDoc comments in the source code.
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests to improve this library.
+## License
+This library is licensed under the GNU GPLv3.0 license.

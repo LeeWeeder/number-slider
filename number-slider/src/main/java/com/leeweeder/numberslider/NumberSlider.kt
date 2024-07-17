@@ -176,8 +176,11 @@ fun NumberSlider(
     val focusManager = LocalFocusManager.current
 
     LaunchedEffect(centerIndex.value) {
-        focusManager.clearFocus()
-        onValueChange(numbers[centerIndex.value])
+        val newCenterValue = numbers[centerIndex.value]
+        if (newCenterValue != value) {
+            focusManager.clearFocus()
+            onValueChange(newCenterValue)
+        }
     }
 
     val isKeyboardClosing = isKeyboardClosing()

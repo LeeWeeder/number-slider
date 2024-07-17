@@ -2,6 +2,9 @@
 [![Release](https://jitpack.io/v/LeeWeeder/NumberSlider.svg)](https://jitpack.io/#LeeWeeder/NumberSlider)
 
 A customizable number slider component for Jetpack Compose, allowing users to select numeric values within a defined range.
+
+This is heavily inspired by [kidinov](https://github.com/kidinov)'s [Simple-Number-Picker](https://github.com/kidinov/Simple-Number-Picker).
+
 ## Preview
 <img src="https://github.com/LeeWeeder/NumberSlider/blob/ed3d2287d9f2f0150970a357bd343f705d44ebfc/assets/preview.gif" width="150">
 

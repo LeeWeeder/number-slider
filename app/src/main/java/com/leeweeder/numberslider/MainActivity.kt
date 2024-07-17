@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.leeweeder.numberslider.ui.theme.NumberSliderTheme
-import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,11 +22,10 @@ class MainActivity : ComponentActivity() {
             NumberSliderTheme {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     val weight = remember {
-                        mutableFloatStateOf(80f)
+                        mutableFloatStateOf(1f)
                     }
                     LaunchedEffect(Unit) {
-                        delay(2000)
-                        weight.floatValue = 40.4f
+                        weight.floatValue = 25f
                     }
                     NumberSlider(value = weight.floatValue, onValueChange = {
                         weight.floatValue = it

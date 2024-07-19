@@ -30,10 +30,10 @@ dependencyResolutionManagement {
 In your version catalog file (`libs.versions.toml`),
 ```toml
 [versions]
-numberSlider = "1.0.4"
+numberslider = "1.0.4"
 
 [libraries]
-numberslider = { group = "com.github.LeeWeeder", name = "NumberSlider", version.ref = "numberSlider"}
+numberslider = { group = "com.github.LeeWeeder", name = "NumberSlider", version.ref = "numberslider"}
 ```
 In your module `build.gradle`,
 ```kotlin

@@ -36,7 +36,7 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v6.1.0
+        uses: peter-evans/create-pull-request@v7
         with: 
           branch: version-update-${{ env.VERSION_NAME }}
           commit-message: Update sample version to ${{ env.VERSION_NAME }}
@@ -44,16 +44,16 @@ jobs:
           title: "Automated PR: Update sample app version"
           body: |
             This PR was automatically created by a GitHub Actions workflow.
-        
-      - name: Enable Pull Request Automerge
-        run: gh pr merge --merge --admin ${{ steps.cpr.outputs.pull-request-number }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout latest
         uses: actions/checkout@v4
         with:
           ref: main
+          
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --merge --admin ${{ steps.cpr.outputs.pull-request-number }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v4.0.2

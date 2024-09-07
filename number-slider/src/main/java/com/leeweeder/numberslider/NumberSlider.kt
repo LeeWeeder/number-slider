@@ -19,7 +19,6 @@
 package com.leeweeder.numberslider
 
 import androidx.annotation.FloatRange
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
@@ -93,7 +92,6 @@ private const val POINTS_ITEM_WIDTH = 3
  * @param onTextFieldValueChange callback invoked when the text field value changes.
  * @param onValueChange callback invoked when the selected value (of the slider itself) changes.
  * */
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NumberSlider(
     modifier: Modifier = Modifier,

@@ -24,12 +24,12 @@ plugins {
 
 android {
     namespace = "com.leeweeder.numberslider"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.leeweeder.numberslider"
         minSdk = 34
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 10004
         versionName = "1.0.4"
 

@@ -33,7 +33,7 @@ In your version catalog file (`libs.versions.toml`),
 numberslider = "[latest-version]"
 
 [libraries]
-numberslider = { group = "com.github.LeeWeeder", name = "NumberSlider", version.ref = "numberslider"}
+numberslider = { module = "com.github.LeeWeeder:number-slider", version.ref = "numberslider"}
 ```
 In your module `build.gradle`,
 ```kotlin

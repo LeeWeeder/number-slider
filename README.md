@@ -30,7 +30,7 @@ dependencyResolutionManagement {
 In your version catalog file (`libs.versions.toml`),
 ```toml
 [versions]
-numberslider = "1.0.4"
+numberslider = "[latest-version]"
 
 [libraries]
 numberslider = { group = "com.github.LeeWeeder", name = "NumberSlider", version.ref = "numberslider"}

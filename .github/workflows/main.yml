@@ -75,14 +75,14 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Decode keystore
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/keystore.jks
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > keystore.jks
 
       - name: Build app
-        run: ./gradlew app:assembleRelease
-        env:
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: ./gradlew app:assembleRelease \
+          -Pandroid.signingConfig.storeFile=keystore.jks \
+          -Pandroid.signingConfig.storePassword=${{ secrets.KEYSTORE_PASSWORD }} \
+          -Pandroid.signingConfig.keyAlias=${{ secrets.KEY_ALIAS }} \
+          -Pandroid.signingConfig.keyPassword=${{ secrets.KEY_PASSWORD }}
       
       - name: Rename file
         run: mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/sample.apk
